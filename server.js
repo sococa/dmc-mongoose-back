@@ -15,7 +15,7 @@ try {
     console.log("ERREUR : ", error.message)
 }
 
-// routes
+// routess
 const register = require("./routes/user")
 const customerFeedback = require("./routes/customerFeedback")
 const education = require("./routes/education")
