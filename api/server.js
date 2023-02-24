@@ -17,12 +17,12 @@ try {
 }
 
 // routes
-const register = require("./routes/user")
-const customerFeedback = require("./routes/customerFeedback")
-const education = require("./routes/education")
-const dogSitting = require("./routes/dogSitting")
-const tip = require("./routes/tip")
-const admin = require("./routes/admin")
+const register = require("../routes/user")
+const customerFeedback = require("../routes/customerFeedback")
+const education = require("../routes/education")
+const dogSitting = require("../routes/dogSitting")
+const tip = require("../routes/tip")
+const admin = require("../routes/admin")
 
 app.use(register)
 app.use(customerFeedback)
@@ -34,3 +34,11 @@ app.use(admin)
 app.listen(3100, ()=> {
     console.log('serveur en marche')
 })
+
+export default function handler(request, response) {
+    response.status(200).json({
+      body: request.body,
+      query: request.query,
+      cookies: request.cookies,
+    });
+  }
