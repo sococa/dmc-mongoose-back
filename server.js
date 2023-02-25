@@ -10,7 +10,7 @@ app.use(expressFormidable())
 app.use(cors())
 
 try {
-    mongoose.connect(process.env.MONGO_URL)
+    mongoose.connect(process.env.MONGO_URI)
     console.log("connexion à la bdd réussie")
 } catch(error) {
     console.log("ERREUR : ", error.message)
