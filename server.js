@@ -7,7 +7,11 @@ const mongoose = require('mongoose')
 const app = express()
 
 app.use(expressFormidable())
-app.use(cors())
+app.use(cors(corsOptions))
+
+const corsOptions = {
+    origin: 'http://localhost:3001'
+}
 
 try {
     mongoose.connect(process.env.MONGO_URI)
@@ -23,16 +27,6 @@ const education = require("./routes/education")
 const dogSitting = require("./routes/dogSitting")
 const tip = require("./routes/tip")
 const admin = require("./routes/admin")
-
-router.get('/', async (req, res)=> {
-
-    try {
-        res.json("Les serveurs fonctionnent")
-    } catch (error) {
-        res.json(error);
-    }
-
-})
 
 app.use(register)
 app.use(customerFeedback)
