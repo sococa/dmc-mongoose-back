@@ -24,6 +24,16 @@ const dogSitting = require("./routes/dogSitting")
 const tip = require("./routes/tip")
 const admin = require("./routes/admin")
 
+router.get('/', async (req, res)=> {
+
+    try {
+        res.json("Les serveurs fonctionnent")
+    } catch (error) {
+        res.json(error);
+    }
+
+})
+
 app.use(register)
 app.use(customerFeedback)
 app.use(education)
