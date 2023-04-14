@@ -7,7 +7,7 @@ const mongoose = require("mongoose");
 const app = express();
 
 app.use(expressFormidable());
-app.use(cors);
+app.use(cors());
 
 try {
   mongoose.connect(process.env.MONGO_URI);
