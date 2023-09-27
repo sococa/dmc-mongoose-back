@@ -17,15 +17,6 @@ try {
   console.log("ERREUR : ", error.message);
 }
 
-const io = new Server(httpServer, {
-  cors: {
-    origin: "https://pointandgo-frontend-alpha.vercel.app/",
-    methods: ["GET", "POST"],
-    allowedHeaders: ["my-custom-header"],
-    credentials: true,
-  },
-});
-
 // routes
 const register = require("./routes/user");
 const customerFeedback = require("./routes/customerFeedback");
@@ -41,6 +32,6 @@ app.use(dogSitting);
 app.use(tip);
 app.use(admin);
 
-app.get("/", (req, res) => {
-  res.json("👩‍💻 Bienvenue sur le serveur Point&Go 🔥");
+app.listen(3100, () => {
+  console.log("serveur en marche");
 });
