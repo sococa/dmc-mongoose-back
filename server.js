@@ -32,6 +32,12 @@ app.use(dogSitting);
 app.use(tip);
 app.use(admin);
 
-app.listen("/", () => {
-  console.log("serveur en marche");
+app.get("/", (req, res) => {
+  res.json("👩‍💻 Bienvenue sur le serveur de DMC 🔥");
+});
+
+const PORT = process.env.PORT || 3100;
+
+app.listen(PORT, () => {
+  console.log(`Serveur en marche sur le port ${PORT}`);
 });
