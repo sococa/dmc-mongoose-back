@@ -15,8 +15,6 @@ cloudinary.config({
 })
 
 router.post('/user/register', async (req, res)=> {
-    // console.log(req.fields)
-    // console.log(req.files)
     try{
 
         const newUser = new User({

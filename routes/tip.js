@@ -91,19 +91,6 @@ router.get('/tips/all', async (req, res) => {
 
 })
 
-/*
-router.get('/tip/:_id', async (req, res)=> {
-    
-    try {
-        const seeOneTip = await Tip.findById({ _id: req.params._id });
-        res.json(seeOneTip)
-    } catch (error) {
-        console.log({ erreur: error.message })
-        res.json('Conseil introuvable');
-    }
-    
-})*/
-
 router.put('tip/update/:_id', async (req, res) => {
 
     try {
