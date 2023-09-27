@@ -1,10 +1,11 @@
 require("dotenv").config();
 
 const express = require("express");
+const app = express();
+
 const expressFormidable = require("express-formidable");
 const cors = require("cors");
 const mongoose = require("mongoose");
-const app = express();
 
 app.use(expressFormidable());
 app.use(cors());
@@ -15,6 +16,15 @@ try {
 } catch (error) {
   console.log("ERREUR : ", error.message);
 }
+
+const io = new Server(httpServer, {
+  cors: {
+    origin: "https://pointandgo-frontend-alpha.vercel.app/",
+    methods: ["GET", "POST"],
+    allowedHeaders: ["my-custom-header"],
+    credentials: true,
+  },
+});
 
 // routes
 const register = require("./routes/user");
@@ -31,6 +41,6 @@ app.use(dogSitting);
 app.use(tip);
 app.use(admin);
 
-app.listen(3100, () => {
-  console.log("serveur en marche");
+app.get("/", (req, res) => {
+  res.json("👩‍💻 Bienvenue sur le serveur Point&Go 🔥");
 });
