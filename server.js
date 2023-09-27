@@ -32,6 +32,6 @@ app.use(dogSitting);
 app.use(tip);
 app.use(admin);
 
-app.listen(3100, () => {
+app.listen("/", () => {
   console.log("serveur en marche");
 });
